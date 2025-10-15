@@ -66,7 +66,9 @@ const fullSamplesFlow = addKeyword<Provider, Database>(['samples', utils.setEven
 const main = async () => {
     const adapterFlow = createFlow([welcomeFlow, registerFlow, fullSamplesFlow])
     
-    const adapterProvider = createProvider(Provider)
+    const adapterProvider = createProvider(Provider, {
+              version: [2, 3000, 1025190524] // Versión específica de WhatsApp
+     }); 
     const adapterDB = new Database()
 
     const { handleCtx, httpServer } = await createBot({
